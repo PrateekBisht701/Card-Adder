@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<!-- CSS code -->
+<style>
+   *{
+      padding: 0;
+      margin: 0;
+      
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+   .header{
+      text-align: center;
+      background: linear-gradient(0deg, rgba(9,54,62,1) 10%, rgba(3,23,27,1) 68%);
+      color: #fff;
+      padding: 50px 0;
+      }
+   .header>h1{
+      font-size: 70px;
+      margin-bottom: 20px;
+   }
+   .header>p{
+      font-size: 25px;
+   }
+   
+   .container{
+      display:flex;
+      flex-wrap:wrap;
+   }
+   .add-card{
+      margin:25px; cursor:pointer;
+      width:100px; height:100px;
+      font-size:60px; font-weight:bolder;
+      color:white; background: rgb(10, 63, 73);
+      text-align:center; border-radius:50%;
+      line-height: 100px; border: 3px solid black;
+      position:fixed; 
+      margin-left:90%; margin-top:48vh;  
+   }
+
+   .newcard{
+      margin:25px; cursor:pointer;
+      padding:60px 0; width:140px;
+      font-size:60px; font-weight:bolder;
+      color:white; background: rgb(9,54,62);
+      background: linear-gradient(0deg, rgba(9,54,62,1) 0%, rgba(3,23,27,1) 88%);
+      text-align:center; border-radius:15px;
+      border: 2px solid black; box-shadow: 10px 10px 20px black;
+   }
+
+</style>
+
+<!-- HTML code -->
+<body>
+
+<div class="header">
+
+   <h1>Card Adder</h1>
+   <p>Adding card using Event Listener</p>
+ 
+</div>
+   
+<div class='add-card' title="add new card"> + </div>  
+
+<div class='container'>  
+</div>
+
+<!-- JAVASCRIPT code-->
+<script>
+
+let container = document.querySelector('.container')
+let addcard = document.querySelector('.add-card')
+
+let count = 1
+
+addcard.addEventListener('click',() => {
+
+   // Create Element
+   
+   const newcard = document.createElement('div')
+   newcard.classList.add('newcard')
+   container.appendChild(newcard)
+   newcard.innerText= count
+   count++
+
+   // Cloning
+
+   // const newcard = addcard.cloneNode()
+   // newcard.classList.remove('add-card')
+   // newcard.classList.add('newcard')
+
+   // newcard.innerText = count
+   // container.append(newcard)
+   // count++
+})
+
+container.addEventListener('click', (e) => {
+   if(e.target !==container){
+      e.target.remove()
+   }
+ }) 
+
+//  EVENT DELEGatION :
+
+
+</script>
+</body>
+</html>
